@@ -1,6 +1,9 @@
+/* eslint-disable global-require */
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
 import { theme } from '../constants';
 
 export default function Typography(props) {
@@ -70,6 +73,16 @@ export default function Typography(props) {
     style, // rewrite predefined styles
   ];
 
+  const [fontsLoaded] = useFonts({
+    'Ubuntu-Bold': require('../../assets/fonts/Ubuntu-Bold.ttf'),
+    'Ubuntu-Light': require('../../assets/fonts/Ubuntu-Light.ttf'),
+    'Ubuntu-Medium': require('../../assets/fonts/Ubuntu-Medium.ttf'),
+    'Ubuntu-Regular': require('../../assets/fonts/Ubuntu-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
   return (
     <Text style={textStyles} {...props}>
       {children}
@@ -82,22 +95,27 @@ const styles = StyleSheet.create({
   text: {
     fontSize: theme.sizes.font,
     color: theme.colors.black,
+    fontFamily: 'Ubuntu-Regular',
   },
   // variations
   regular: {
-    fontWeight: 'normal',
+    // fontWeight: 'normal',
+    fontFamily: 'Ubuntu-Regular',
   },
   bold: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily: 'Ubuntu-Bold',
   },
   semibold: {
     fontWeight: '500',
   },
   medium: {
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily: 'Ubuntu-Medium',
   },
   light: {
-    fontWeight: '200',
+    // fontWeight: '200',
+    fontFamily: 'Ubuntu-Light',
   },
   // position
   center: { textAlign: 'center' },
