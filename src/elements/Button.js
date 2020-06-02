@@ -39,12 +39,12 @@ export default function Button(props) {
 
 Button.defaultProps = {
   opacity: 0.8,
-  color: theme.colors.white,
+  color: theme.colors.tertiary,
 };
 
 const styles = StyleSheet.create({
   button: {
-    height: theme.sizes.base * 3,
+    height: theme.sizes.base * 4,
     justifyContent: 'center',
     marginVertical: theme.sizes.padding / 3,
     marginTop: theme.sizes.base / 2,
