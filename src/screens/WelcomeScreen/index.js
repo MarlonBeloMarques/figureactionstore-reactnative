@@ -7,7 +7,11 @@ import background from '../../../assets/images/godofwar.png';
 
 const { width } = Dimensions.get('window');
 
-export default function App() {
+export default function WelcomeScreen(props) {
+  function handleSubmit() {
+    props.navigation.navigate('explore');
+  }
+
   return (
     // eslint-disable-next-line no-use-before-define
     <Block
@@ -36,7 +40,7 @@ export default function App() {
       </Block>
       <Block middle>
         <Block margin={[theme.sizes.padding * 6, 0, 0, 0]} flex={false}>
-          <Button>
+          <Button onPress={handleSubmit}>
             <Text center bold white>
               Go Store
             </Text>
