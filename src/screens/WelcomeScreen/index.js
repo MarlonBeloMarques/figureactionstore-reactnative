@@ -1,7 +1,9 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
-import { Block, Text, Button } from '../../elements';
+import { Block, Text, Button, Photo } from '../../elements';
 import { theme } from '../../constants';
+
+import background from '../../../assets/images/godofwar.png';
 
 const { width } = Dimensions.get('window');
 
@@ -17,6 +19,13 @@ export default function App() {
       ]}
     >
       <Block
+        margin={[theme.sizes.padding * 4, theme.sizes.padding * 2, 0, 0]}
+        flex={false}
+        absolute
+      >
+        <Photo resizeMode="cover" height={110} size={200} image={background} />
+      </Block>
+      <Block
         margin={[0, 0, 0, theme.sizes.padding]}
         size2={width / 2}
         flex={false}
@@ -26,11 +35,13 @@ export default function App() {
         </Text>
       </Block>
       <Block middle>
-        <Button>
-          <Text center bold white>
-            Go Store
-          </Text>
-        </Button>
+        <Block margin={[theme.sizes.padding * 6, 0, 0, 0]} flex={false}>
+          <Button>
+            <Text center bold white>
+              Go Store
+            </Text>
+          </Button>
+        </Block>
       </Block>
     </Block>
   );
