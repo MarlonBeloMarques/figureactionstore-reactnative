@@ -109,6 +109,7 @@ export default function Block(props) {
     bottom,
     card,
     size,
+    size2,
     shadow,
     color,
     space,
@@ -124,6 +125,7 @@ export default function Block(props) {
   const blockStyles = [
     styles.block,
     size && { height: size },
+    size2 && { width: size2 },
     border && styles.border,
     fullBorder && styles.fullBorder,
     flex && { flex },
@@ -194,7 +196,7 @@ export const styles = StyleSheet.create({
   },
   fullBorder: {
     borderWidth: 1,
-    borderColor: theme.colors.gray3,
+    borderColor: theme.colors.white,
   },
 
   accent: { backgroundColor: theme.colors.accent },
