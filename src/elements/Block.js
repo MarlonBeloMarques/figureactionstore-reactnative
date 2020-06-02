@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable consistent-return */
 /* eslint-disable no-use-before-define */
 import React from 'react';
@@ -122,10 +123,13 @@ export default function Block(props) {
     fullBorder,
     children,
     absolute,
+    index,
+    key,
   } = props;
 
   const blockStyles = [
     styles.block,
+    index && { zIndex: index },
     absolute && styles.absolute,
     size && { height: size },
     size2 && { width: size2 },
@@ -154,6 +158,7 @@ export default function Block(props) {
 
   return (
     <View
+      key={key}
       style={[absolute === true ? StyleSheet.absoluteFill : null, blockStyles]}
     >
       {children}
@@ -215,6 +220,6 @@ export const styles = StyleSheet.create({
 });
 
 Block.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   absolute: (PropTypes.bool = false),
+  key: (PropTypes.string = ''),
 };

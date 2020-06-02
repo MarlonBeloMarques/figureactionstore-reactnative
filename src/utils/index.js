@@ -16,3 +16,22 @@ export function getProducts() {
 
   return data;
 }
+
+export function getOptions() {
+  const data = [
+    {
+      id: '1',
+      name: 'Games',
+    },
+    {
+      id: '2',
+      name: 'Animes',
+    },
+    {
+      id: '3',
+      name: 'Others',
+    },
+  ];
+
+  return data;
+}

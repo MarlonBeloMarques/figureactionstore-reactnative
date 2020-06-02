@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
-import { Block, Text } from '../../elements';
+import { Block, Text, Button } from '../../elements';
 import { theme } from '../../constants';
+import { getOptions } from '../../utils';
 
 const { width } = Dimensions.get('window');
 
 export default function ExploreScreen() {
+  const data = getOptions();
+
+  const [value, setValue] = useState('1');
+
   return (
     // eslint-disable-next-line no-use-before-define
     <Block>
@@ -28,11 +33,34 @@ export default function ExploreScreen() {
           </Text>
         </Block>
       </Block>
-      <Block
-        margin={[theme.sizes.padding * 3, 0, 0, 0]}
-        color="secondary"
-        card
-      />
+      <Block margin={[theme.sizes.padding * 3, 0, 0, 0]} color="secondary" card>
+        <Block flex={false} margin={[theme.sizes.base, 0, 0, 0]} middle row>
+          {data.map((item) => {
+            return (
+              <Block key={item.id} margin={[0, theme.sizes.base]} flex={false}>
+                <Button style onPress={() => setValue(item.id)}>
+                  <Block
+                    padding={[
+                      theme.sizes.base,
+                      theme.sizes.base,
+                      0,
+                      theme.sizes.base,
+                    ]}
+                    flex={false}
+                  >
+                    <Text white>{item.name}</Text>
+                    {value === item.id && (
+                      <Block index={-1} absolute>
+                        <Button shadow size={theme.sizes.base * 2} />
+                      </Block>
+                    )}
+                  </Block>
+                </Button>
+              </Block>
+            );
+          })}
+        </Block>
+      </Block>
     </Block>
   );
 }

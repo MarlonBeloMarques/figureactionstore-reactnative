@@ -13,6 +13,7 @@ export default function Button(props) {
     children,
     radius,
     disableRadiusDefault,
+    size,
   } = props;
 
   const buttonStyles = [
@@ -20,6 +21,8 @@ export default function Button(props) {
       ? { borderRadius: radius }
       : { borderRadius: theme.sizes.radius },
     styles.button,
+    !size && { height: theme.sizes.base * 4 },
+    size && { height: size },
     shadow && styles.shadow, // shadow for IOS, elevation for android
     color && styles[color], // predefined styles colors for backgroundColor
     color && !styles[color] && { backgroundColor: color }, // custom backgroundColor
@@ -44,7 +47,6 @@ Button.defaultProps = {
 
 const styles = StyleSheet.create({
   button: {
-    height: theme.sizes.base * 4,
     justifyContent: 'center',
     marginVertical: theme.sizes.padding / 3,
     marginTop: theme.sizes.base / 2,
