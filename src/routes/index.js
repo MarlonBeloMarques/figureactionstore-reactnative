@@ -7,6 +7,7 @@ import { Platform, Image } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import ExploreScreen from '../screens/ExploreScreen';
+import ProductScreen from '../screens/ProductScreen';
 
 import { theme } from '../constants';
 import { Button } from '../elements';
@@ -24,6 +25,7 @@ const screens = createStackNavigator(
         ),
       }),
     },
+    product: ProductScreen,
   },
   {
     defaultNavigationOptions: {

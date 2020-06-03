@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
 import { Block, Text, Button } from '../../elements';
 import { theme } from '../../constants';
 import { getOptions, getProducts } from '../../utils';
@@ -8,14 +7,17 @@ import { Product } from '../../components';
 
 const { width } = Dimensions.get('window');
 
-export default function ExploreScreen() {
+export default function ExploreScreen(props) {
   const data = getOptions();
   const products = getProducts();
 
   const [value, setValue] = useState('1');
 
+  function onProductClicked() {
+    props.navigation.navigate('product');
+  }
+
   return (
-    // eslint-disable-next-line no-use-before-define
     <Block>
       <Block
         flex={false}
@@ -65,7 +67,7 @@ export default function ExploreScreen() {
         </Block>
         <Block row>
           {products.map((item) => {
-            return <Product item={item} />;
+            return <Product onPress={onProductClicked} item={item} />;
           })}
         </Block>
       </Block>
