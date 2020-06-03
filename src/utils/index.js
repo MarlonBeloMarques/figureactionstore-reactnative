@@ -6,11 +6,20 @@ export function getProducts() {
   const data = [
     {
       id: '1',
-      image: product_1,
+      image: product_2,
+      title: 'Naked Snake',
+      subtitle: 'metal gear solid',
+      price: 'R$ 178',
+      about:
+        'Naked Snake é um dos personagens mais misteriosos e controversos já criados em uma história de video game. E se você jogou Metal Gear Solid 3: Snake Eater, deve ter percebido isso.',
     },
     {
       id: '2',
-      image: product_2,
+      image: product_1,
+      title: 'Kratos and Atreus',
+      subtitle: 'god of war',
+      price: 'R$ 300',
+      about: '',
     },
   ];
 

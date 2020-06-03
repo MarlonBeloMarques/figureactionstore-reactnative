@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { Block, Text, Button } from '../../elements';
 import { theme } from '../../constants';
-import { getOptions } from '../../utils';
+import { getOptions, getProducts } from '../../utils';
+import { Product } from '../../components';
 
 const { width } = Dimensions.get('window');
 
 export default function ExploreScreen() {
   const data = getOptions();
+  const products = getProducts();
 
   const [value, setValue] = useState('1');
 
@@ -58,6 +61,11 @@ export default function ExploreScreen() {
                 </Button>
               </Block>
             );
+          })}
+        </Block>
+        <Block row>
+          {products.map((item) => {
+            return <Product item={item} />;
           })}
         </Block>
       </Block>
