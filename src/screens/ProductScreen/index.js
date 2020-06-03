@@ -1,11 +1,11 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
-import { Block, Text, Button } from '../../elements';
+import { Block, Text, Button, Photo } from '../../elements';
 import { theme } from '../../constants';
 import { getProducts } from '../../utils';
 import styles from './styles';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default function ProductScreen() {
   const products = getProducts();
@@ -13,6 +13,15 @@ export default function ProductScreen() {
   return (
     <Block>
       <Block
+        index={2}
+        flex={false}
+        absolute
+        style={{ left: width / 2.4, top: theme.sizes.padding }}
+      >
+        <Photo height={110} size={150} image={products[0].image} />
+      </Block>
+      <Block
+        index={3}
         flex={false}
         padding={[
           theme.sizes.base,
@@ -51,25 +60,36 @@ export default function ProductScreen() {
         <Block
           flex={false}
           margin={[theme.sizes.base, 0, theme.sizes.padding * 2, 0]}
-          size2={width / 1.8}
+          size2={width / 1.9}
         >
           <Text white light>
             {products[0].about}
           </Text>
         </Block>
-        <Block padding={[0, 0, theme.sizes.padding * 2, 0]} row>
-          <Block middle>
-            <Text white bold h3>
-              {products[0].price}
+      </Block>
+      <Block
+        absolute
+        index={3}
+        padding={[
+          0,
+          theme.sizes.base * 2,
+          theme.sizes.padding * 2,
+          theme.sizes.base * 2,
+        ]}
+        row
+        style={{ top: height / 1.4 }}
+      >
+        <Block middle>
+          <Text white bold h3>
+            {products[0].price}
+          </Text>
+        </Block>
+        <Block middle flex={false}>
+          <Button style={styles.cart}>
+            <Text center white>
+              Add to cart
             </Text>
-          </Block>
-          <Block middle flex={false}>
-            <Button style={styles.cart}>
-              <Text center white>
-                Add to cart
-              </Text>
-            </Button>
-          </Block>
+          </Button>
         </Block>
       </Block>
     </Block>
