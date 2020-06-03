@@ -177,7 +177,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   card: {
-    borderRadius: theme.sizes.radius * 2,
+    borderTopLeftRadius: theme.sizes.radius * 2,
+    borderTopRightRadius: theme.sizes.radius * 2,
   },
   center: {
     alignItems: 'center',

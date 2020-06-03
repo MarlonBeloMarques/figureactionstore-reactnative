@@ -23,7 +23,12 @@ export default function WelcomeScreen(props) {
       ]}
     >
       <Block flex={false} absolute style={{ top: theme.sizes.padding * 2 }}>
-        <Photo height={110} size={180} image={background} />
+        <Photo
+          resizeMode="contain"
+          height={110}
+          size={180}
+          image={background}
+        />
       </Block>
       <Block
         margin={[0, 0, 0, theme.sizes.padding]}

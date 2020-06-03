@@ -47,7 +47,7 @@ export default function ProductScreen() {
           0,
           theme.sizes.base * 2,
         ]}
-        margin={[theme.sizes.padding * 11, 0, 0, 0]}
+        margin={[theme.sizes.padding * 6, 0, 0, 0]}
         color="secondary"
         card
       >
@@ -77,7 +77,7 @@ export default function ProductScreen() {
           theme.sizes.base * 2,
         ]}
         row
-        style={{ top: height / 1.4 }}
+        style={{ top: height / 1.5 }}
       >
         <Block middle>
           <Text white bold h3>
