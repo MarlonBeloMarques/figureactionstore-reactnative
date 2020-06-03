@@ -2,6 +2,7 @@ const colors = {
   primary: '#010101',
   secondary: '#2E2F33',
   tertiary: '#BF4A45',
+  red: '#DE7672',
   white: '#FFFFFF',
 };
 

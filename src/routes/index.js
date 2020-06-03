@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { Platform, Image } from 'react-native';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, AntDesign } from '@expo/vector-icons';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProductScreen from '../screens/ProductScreen';
@@ -25,7 +25,16 @@ const screens = createStackNavigator(
         ),
       }),
     },
-    product: ProductScreen,
+    product: {
+      screen: ProductScreen,
+      navigationOptions: () => ({
+        headerRight: (
+          <Button style>
+            <AntDesign name="heart" size={20} color={theme.colors.red} />
+          </Button>
+        ),
+      }),
+    },
   },
   {
     defaultNavigationOptions: {
