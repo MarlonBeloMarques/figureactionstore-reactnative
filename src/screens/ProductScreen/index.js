@@ -39,6 +39,27 @@ export default function ProductScreen() {
             {products[0].title}
           </Text>
         </Block>
+        <Block flex={false} margin={[theme.sizes.base, 0]}>
+          {products[0].other_images.map((item) => {
+            return (
+              <Button style>
+                <Block
+                  flex={false}
+                  padding={theme.sizes.base / 3}
+                  color="white"
+                  style={styles.gallery}
+                >
+                  <Photo
+                    size={100}
+                    height={100}
+                    resizeMode="contain"
+                    image={item}
+                  />
+                </Block>
+              </Button>
+            );
+          })}
+        </Block>
       </Block>
       <Block
         padding={[
@@ -47,7 +68,7 @@ export default function ProductScreen() {
           0,
           theme.sizes.base * 2,
         ]}
-        margin={[theme.sizes.padding * 6, 0, 0, 0]}
+        margin={[theme.sizes.padding * 3, 0, 0, 0]}
         color="secondary"
         card
       >

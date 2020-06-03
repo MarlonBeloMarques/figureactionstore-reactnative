@@ -1,12 +1,15 @@
 /* eslint-disable camelcase */
 import product_1 from '../../assets/images/godofwar4.png';
 import product_2 from '../../assets/images/metalgearsolid.png';
+import product_3 from '../../assets/images/metalgearsolid2.png';
+import product_4 from '../../assets/images/metalgearsolid3.png';
 
 export function getProducts() {
   const data = [
     {
       id: '1',
       image: product_2,
+      other_images: [product_3, product_4],
       title: 'Naked Snake',
       subtitle: 'metal gear solid',
       price: 'R$ 178',

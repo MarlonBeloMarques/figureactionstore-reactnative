@@ -9,4 +9,10 @@ export default StyleSheet.create({
     paddingHorizontal: theme.sizes.padding,
     paddingVertical: theme.sizes.base,
   },
+  gallery: {
+    height: theme.sizes.base * 3,
+    width: theme.sizes.base * 3,
+    borderRadius: 10,
+    marginTop: theme.sizes.base,
+  },
 });
