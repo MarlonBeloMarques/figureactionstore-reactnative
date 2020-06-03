@@ -65,7 +65,7 @@ export default function ExploreScreen(props) {
             );
           })}
         </Block>
-        <Block row>
+        <Block middle row>
           {products.map((item) => {
             return <Product onPress={onProductClicked} item={item} />;
           })}
