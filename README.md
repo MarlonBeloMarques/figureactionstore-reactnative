@@ -16,6 +16,10 @@ Figure Action Store is a virtual action figure store. Where it contains several 
     <img src="./readme/product.png" width="225" height="487" />
 </p>
 
+| Project | Preview | Screens | Estimation | Status |
+| ------ | :------: | :------: | :------: | :------: |
+| [Figure Action Store](https://www.figma.com/file/jPqNLLlpSPDGnQOYMcRY8F/interfacetemplates-figureaction-store?node-id=0%3A1) | <img src="./readme/interfacetemplates_figureaction-storeprototype.png" width="120" /> | 3 | ~10 hours | :white_check_mark: |
+
 ---
 
 ## 🚀 Starting
