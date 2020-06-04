@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions } from 'react-native';
 import { Block, Text, Button, Photo } from '../../elements';
 import { theme } from '../../constants';
-import { getProducts } from '../../utils';
+import { getProducts, processImages } from '../../utils';
 import styles from './styles';
 
 const { width, height } = Dimensions.get('window');
 
-export default function ProductScreen() {
+export default function ProductScreen(props) {
+  const id = props.navigation.getParam('id');
+
+  const [product, setProduct] = useState({
+    id: '0',
+    image: '',
+    height: 0,
+    width: 0,
+    other_images: [],
+    title: '',
+    subtitle: '',
+    price: '',
+    about: '',
+  });
+
   const products = getProducts();
+
+  useEffect(() => {
+    products.map((item) => {
+      if (item.id === id) {
+        setProduct({
+          id: item.id,
+          image: item.image,
+          height: item.height,
+          width: item.width,
+          other_images: item.other_images,
+          title: item.title,
+          subtitle: item.subtitle,
+          price: item.price,
+          about: item.about,
+        });
+      }
+    });
+  }, []);
 
   return (
     <Block>
@@ -16,9 +48,16 @@ export default function ProductScreen() {
         index={2}
         flex={false}
         absolute
-        style={{ left: width / 2.4, top: theme.sizes.padding }}
+        size2={width / 1.5}
+        margin={[0, 0, 0, width / 3.5]}
+        style={{ top: theme.sizes.padding * 2 }}
       >
-        <Photo height={110} size={150} image={products[0].image} />
+        <Photo
+          resizeMode="contain"
+          height={110}
+          size={180}
+          image={product.image}
+        />
       </Block>
       <Block
         index={3}
@@ -36,11 +75,11 @@ export default function ProductScreen() {
           flex={false}
         >
           <Text bold h2 white>
-            {products[0].title}
+            {product.title}
           </Text>
         </Block>
         <Block flex={false} margin={[theme.sizes.base, 0]}>
-          {products[0].other_images.map((item) => {
+          {product.other_images.map((item) => {
             return (
               <Button style>
                 <Block
@@ -68,7 +107,7 @@ export default function ProductScreen() {
           0,
           theme.sizes.base * 2,
         ]}
-        margin={[theme.sizes.padding * 3, 0, 0, 0]}
+        margin={[theme.sizes.base, 0, 0, 0]}
         color="secondary"
         card
       >
@@ -76,7 +115,7 @@ export default function ProductScreen() {
           About
         </Text>
         <Block flex={false} margin={[theme.sizes.base, 0, theme.sizes.base, 0]}>
-          <Text white>{products[0].subtitle}</Text>
+          <Text white>{product.subtitle}</Text>
         </Block>
         <Block
           flex={false}
@@ -84,7 +123,7 @@ export default function ProductScreen() {
           size2={width / 1.9}
         >
           <Text white light>
-            {products[0].about}
+            {product.about}
           </Text>
         </Block>
       </Block>
@@ -92,7 +131,7 @@ export default function ProductScreen() {
         absolute
         index={3}
         padding={[
-          0,
+          theme.sizes.padding,
           theme.sizes.base * 2,
           theme.sizes.padding * 2,
           theme.sizes.base * 2,
@@ -102,7 +141,7 @@ export default function ProductScreen() {
       >
         <Block middle>
           <Text white bold h3>
-            {products[0].price}
+            {product.price}
           </Text>
         </Block>
         <Block middle flex={false}>

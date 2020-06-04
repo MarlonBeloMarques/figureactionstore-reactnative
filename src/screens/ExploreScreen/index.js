@@ -13,8 +13,8 @@ export default function ExploreScreen(props) {
 
   const [value, setValue] = useState('1');
 
-  function onProductClicked() {
-    props.navigation.navigate('product');
+  function onProductClicked(id) {
+    props.navigation.navigate('product', { id });
   }
 
   return (
@@ -67,7 +67,9 @@ export default function ExploreScreen(props) {
         </Block>
         <Block middle row>
           {products.map((item) => {
-            return <Product onPress={onProductClicked} item={item} />;
+            return (
+              <Product onPress={() => onProductClicked(item.id)} item={item} />
+            );
           })}
         </Block>
       </Block>
