@@ -27,11 +27,12 @@ export default function ProductScreen(props) {
   useEffect(() => {
     products.map((item) => {
       if (item.id === id) {
+        const source = processImages(item.width, item.height);
         setProduct({
           id: item.id,
           image: item.image,
-          height: item.height,
-          width: item.width,
+          height: source[1],
+          width: source[0],
           other_images: item.other_images,
           title: item.title,
           subtitle: item.subtitle,
@@ -45,17 +46,18 @@ export default function ProductScreen(props) {
   return (
     <Block>
       <Block
+        center
         index={2}
         flex={false}
         absolute
-        size2={width / 1.5}
-        margin={[0, 0, 0, width / 3.5]}
         style={{ top: theme.sizes.padding * 2 }}
       >
         <Photo
-          resizeMode="contain"
-          height={110}
-          size={180}
+          style={{
+            marginLeft: width / 1.2,
+          }}
+          height={product.height}
+          size={product.width}
           image={product.image}
         />
       </Block>
@@ -120,7 +122,7 @@ export default function ProductScreen(props) {
         <Block
           flex={false}
           margin={[theme.sizes.base, 0, theme.sizes.padding * 2, 0]}
-          size2={width / 1.9}
+          size2={width / 2.5}
         >
           <Text white light>
             {product.about}
