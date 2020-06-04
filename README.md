@@ -8,3 +8,43 @@ Figure Action Store is a virtual action figure store. Where it contains several 
     <img alt="Made by Marlon Marques" src="https://img.shields.io/badge/made%20by-Marlon%20Marques-brightgreen">
   </a>
 </p>
+
+
+<p align="center">
+    <img src="./readme/welcome.png" width="225" height="487" />
+    <img src="./readme/explore.png" width="225" height="487" />
+    <img src="./readme/product.png" width="225" height="487" />
+</p>
+
+---
+
+## 🚀 Starting
+
+### Prerequisites
+
+
+- To run any React Native / Expo application, you need to configure the environment on your machine.
+
+- Defining the environment is a complex process, so I recommend following the Expo documentation:
+
+#### [**Expo Introduction**](https://expo.io/learn)
+
+
+### Clone
+
+- Clone this repository on your machine
+
+```
+https://github.com/MarlonBeloMarques/figureactionstore-reactnative
+```
+### Getting Started
+
+- `$ yarn install`
+- `$ yarn start`
+
+## 📌 Support
+
+Please contact me at one of the following places!
+
+- Instagram on [@marlomarquesbr](https://www.instagram.com/marlonmarqsbr/)
+- Linkedin on [Marlon Marques](https://www.linkedin.com/in/marlon-marques-0b509813b/)
