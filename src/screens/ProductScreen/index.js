@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, Animated } from 'react-native';
 import { Block, Text, Button, Photo } from '../../elements';
 import { theme } from '../../constants';
 import { getProducts, processImages } from '../../utils';
-import styles from './styles';
+import styles, { Image } from './styles';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,6 +21,7 @@ export default function ProductScreen(props) {
     price: '',
     about: '',
   });
+  const [openProgress, setOpenProgress] = useState(new Animated.Value(0));
 
   const products = getProducts();
 
@@ -43,6 +44,13 @@ export default function ProductScreen(props) {
     });
   }, []);
 
+  useEffect(() => {
+    Animated.timing(openProgress, {
+      toValue: 1,
+      duration: 1200,
+    }).start();
+  }, []);
+
   return (
     <Block>
       <Block
@@ -52,13 +60,16 @@ export default function ProductScreen(props) {
         absolute
         style={{ top: theme.sizes.padding * 2 }}
       >
-        <Photo
-          style={{
-            marginLeft: width / 1.2,
-          }}
+        <Image
           height={product.height}
-          size={product.width}
-          image={product.image}
+          width={product.width}
+          source={product.image}
+          style={{
+            opacity: openProgress.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, 1],
+            }),
+          }}
         />
       </Block>
       <Block

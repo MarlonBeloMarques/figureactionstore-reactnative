@@ -1,5 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Animated, Dimensions } from 'react-native';
+import styled from 'styled-components/native';
 import { theme } from '../../constants';
+
+const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   cart: {
@@ -16,3 +19,9 @@ export default StyleSheet.create({
     marginTop: theme.sizes.base,
   },
 });
+
+export const Image = styled(Animated.Image)`
+  margin-left: ${width / 1.2}px;
+  height: ${(props) => props.height}%;
+  width: ${(props) => props.width}%;
+`;

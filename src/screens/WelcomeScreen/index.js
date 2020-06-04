@@ -24,6 +24,7 @@ export default function WelcomeScreen(props) {
     >
       <Block flex={false} absolute style={{ top: theme.sizes.padding * 2 }}>
         <Photo
+          style={{ opacity: 0.8 }}
           resizeMode="contain"
           height={110}
           size={180}
